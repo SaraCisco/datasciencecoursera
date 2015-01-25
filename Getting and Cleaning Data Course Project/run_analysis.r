@@ -29,12 +29,12 @@ test_data <- cbind(subject_test, Y_test, X_test)
 # Read and apply same processing to X_train & Y_train like X_test and Y_test.
 X_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
 Y_train <- read.table("./UCI HAR Dataset/train/y_train.txt")
+names(X_train) = features
 X_train = X_train[,filtered_features]
 # Load activity data
 Y_train[,2] = activity_labels[Y_train[,1]]
 names(Y_train) = c("Activity_ID", "Activity_Label")
 subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
-names(X_train) = features
 names(subject_train) = "subject"
 subject_train <- as.data.table(subject_train)
 # Bind data
